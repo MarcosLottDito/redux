@@ -1,10 +1,10 @@
 # redux
 
-Im building this repository to save my studies of <span style="color: #8be9fd;">redux library</span> and document it into this reademe.md file so I can help other people to understand it in a simple way.
+I'm creating this repository to save my studies of the <span style="color: #8be9fd;">redux library</span> and document them in this readme.md file so that I can assist other people in understanding it in a straightforward manner.
 
-So, getting started, lets jump into it!
+So, to get started, let's dive right in!
 
-Basically, if I could resume redux in a sentence, I could say that redux is a very well known library that allows you to conduct some state management in your react application.
+In essence, if I were to summarize Redux in a single sentence, I would say that redux is a very well known library that allows you to manage states in your <span style="color: #8be9fd;">React application</span>.
 
 ## what is state management?
 

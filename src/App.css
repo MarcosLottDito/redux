@@ -1,3 +1,73 @@
+/* Dracula Theme CSS */
+body {
+  background-color: #282a36;
+  color: #f8f8f2;
+  font-family: "Courier New", monospace;
+  margin: 0;
+  padding: 64px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+a {
+  color: #bd93f9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ff79c6;
+}
+
+p {
+  line-height: 1.5;
+}
+
+/* Sample button style */
+.button {
+  background-color: #50fa7b;
+  color: #282a36;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #bd93f9;
+}
+
+/* Sample input style */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: #44475a;
+  color: #f8f8f2;
+  border: 1px solid #6272a4;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: 1px solid #bd93f9;
+}
+
 .App {
   text-align: center;
 }
