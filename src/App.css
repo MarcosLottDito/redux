@@ -36,7 +36,7 @@ p {
 }
 
 /* Sample button style */
-.button {
+button {
   background-color: #50fa7b;
   color: #282a36;
   border: none;
@@ -45,7 +45,7 @@ p {
   cursor: pointer;
 }
 
-.button:hover {
+button:hover {
   background-color: #bd93f9;
 }
 
