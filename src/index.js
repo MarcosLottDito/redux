@@ -4,10 +4,13 @@ import ReactDOM from "react-dom/client";
 import { configureStore } from "@reduxjs/toolkit";
 
 import App from "./App";
+import userReducer from "./features/user";
 import reportWebVitals from "./reportWebVitals";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    user: userReducer,
+  },
 });
 
 ReactDOM.render(
