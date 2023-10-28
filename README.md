@@ -6,11 +6,15 @@ So, to get started, let's dive right in!
 
 In essence, if I were to summarize Redux in a single sentence, I would say that redux is a very well known library that allows you to manage states in your <span style="color: #8be9fd;">React application</span>.
 
+<p align="center" style='width:400px'>
+  <img src="./public/readme0.png" alt="Alt text">
+</p>
+
 ## what is state management?
 
 To explain the importance of state management and how redux can help us in doing that I made this simple diagram:
 
-<p align="center">
+<p align="center" style='width:400px'>
   <img src="./public/readme1.png" alt="Alt text">
 </p>
 
