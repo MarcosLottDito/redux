@@ -34,7 +34,7 @@ let's introduce the concept of a `store`. a store is essentially a container, so
 
 to create a store, we just need to import the function called `configureStore()` from the `redux-toolkit` library and pass your reducers into it. after that, we are able to create a `provider` to wrap our `app component` so it can have access to all of the information contained in the store.
 
-'''jsx
+```jsx
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
@@ -50,7 +50,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-'''
+```
 
 but what exactly is a `reducer`? well, a reducer is just a function that takes the `previous value` of the state and an `action` so it can change the value of the state in response to that action.
 
