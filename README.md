@@ -32,14 +32,17 @@ for this reason, we want to focus on state management for different states that 
 
 let's introduce the concept of a `store`. a store is essentially a container, something that holds information. so, when we create a store in redux, it serves as a place to store all the states you want to make `global`, allowing you to access them throughout your entire application.
 
-to create a store, we just need to import the function called `configureStore()` from the `redux-toolkit` library and pass your reducers into it. after that, we are able to create a `provider` to wrap our `app component` so it can have access to all of the information contained in the store.
+to create a store, we just need to import the function called `configureStore` from the `redux-toolkit` library and pass your reducers into it. after that, we are able to create a `provider` to wrap our `app component` so it can have access to all of the information contained in the store.
 
 ```jsx
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "./features/user";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    user: userReducer,
+  },
 });
 
 ReactDOM.render(
@@ -55,3 +58,30 @@ ReactDOM.render(
 but what exactly is a `reducer`? well, a reducer is just a function that takes the `previous value` of the state and an `action` so it can change the value of the state in response to that action.
 
 that's how we hold all of the information needed for our code to work! we are going to have reducers for all of the different states we want to have in our application so we can manage them properly.
+
+## how can we create a reducer?
+
+to build our `user state` reducer we are goint to use a function called `createSlice` that allows you to create a reducer easily and it become very intuitive for you to split your logic and be able access it throughout your application.
+
+```jsx
+import { createSlice } from "@reduxjs/toolkit";
+
+export const userSlice = createSlice({
+  name: "user",
+  initialState: { value: { name: "", age: 0, email: "" } },
+  reducers: {
+    login: (state, action) => {
+      state.value = action.payload;
+    },
+  },
+});
+
+export default userSlice.reducer;
+```
+
+as we can see, our slice have 3 properties: name, initialState and the reducers. the reducers receives our fucntions and each function receives 2 parameters:
+
+- `state` which is the previous state stored in the app. so in this case, the state will have a value that is an object with name, age and email.
+- `action` which is the data that represents an intention to change the state and is the only way to send data from your application to the redux store. actions have two properties:
+  - `payload` which is the additional data used to update the state.
+  - `type` which indicates the type of action being performed. it is used to manipulate the paylod conditionally (I'm not going to set a type because it is just a simple application).
