@@ -42,7 +42,6 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import App from "./App";
 import userReducer from "./features/user";
-import reportWebVitals from "./reportWebVitals";
 
 const store = configureStore({
   reducer: {
@@ -58,8 +57,6 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-reportWebVitals();
 ```
 
 but what exactly is a `reducer`? well, a reducer is just a function that takes the `previous value` of the state and an `action` so it can change the value of the state in response to that action.
