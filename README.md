@@ -35,9 +35,14 @@ let's introduce the concept of a `store`. a store is essentially a container, so
 to create a store, we just need to import the function called `configureStore` from the `redux-toolkit` library and pass your reducers into it. after that, we are able to create a `provider` to wrap our `app component` so it can have access to all of the information contained in the store.
 
 ```jsx
+import React from "react";
 import { Provider } from "react-redux";
+import ReactDOM from "react-dom/client";
 import { configureStore } from "@reduxjs/toolkit";
+
+import App from "./App";
 import userReducer from "./features/user";
+import reportWebVitals from "./reportWebVitals";
 
 const store = configureStore({
   reducer: {
@@ -45,14 +50,16 @@ const store = configureStore({
   },
 });
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
+
+reportWebVitals();
 ```
 
 but what exactly is a `reducer`? well, a reducer is just a function that takes the `previous value` of the state and an `action` so it can change the value of the state in response to that action.
@@ -61,7 +68,7 @@ that's how we hold all of the information needed for our code to work! we are go
 
 ## how can we create a reducer?
 
-to build our `user state` reducer we are goint to use a function called `createSlice` that allows you to create a reducer easily and it become very intuitive for you to split your logic and be able access it throughout your application.
+to build our `user state reducer`, we are going to use a function called `createSlice` that allows you to create a reducer easily, making it very intuitive for you to split your logic and access it throughout your application.
 
 ```jsx
 import { createSlice } from "@reduxjs/toolkit";
@@ -76,12 +83,82 @@ export const userSlice = createSlice({
   },
 });
 
+export const { login } = userSlice.actions;
+//exporting the login action to update the state
+
 export default userSlice.reducer;
+//exporting the reducer so we can access the states values
 ```
 
-as we can see, our slice have 3 properties: name, initialState and the reducers. the reducers receives our fucntions and each function receives 2 parameters:
+as we can see, our slice has 3 properties: name, initialState, and the reducers. the reducers receive our functions, and each function takes 2 parameters:
 
-- `state` which is the previous state stored in the app. so in this case, the state will have a value that is an object with name, age and email.
-- `action` which is the data that represents an intention to change the state and is the only way to send data from your application to the redux store. actions have two properties:
+- `state`, which is the previous state stored in the app. So, in this case, the state will have a value that is an object with name, age, and email.
+- `action`, which is the data that represents an intention to change the state and is the only way to send data from your application to the Redux store. Actions have two properties:
   - `payload` which is the additional data used to update the state.
-  - `type` which indicates the type of action being performed. it is used to manipulate the paylod conditionally (I'm not going to set a type because it is just a simple application).
+  - `type` which indicates the type of action being performed. It is used to manipulate the payload conditionally (I'm not going to set a type because it is just a simple application).
+
+## how we can update the state?
+
+to update the states values we are going to use the `useDispatch` hook from redux, so we can can dispatch the state into the reducer. to use this hook we just pass into it, as a parameter, the action we exported from our reducer using the new payload.
+
+```jsx
+import React from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../features/user";
+
+function Login() {
+  const dispatch = useDispatch();
+
+  const user = {
+    name: "marcos",
+    age: 21,
+    email: "lott.marcos@gmail.com",
+  };
+
+  return (
+    <div>
+      <button onClick={() => dispatch(login(user))}>login</button>
+    </div>
+  );
+}
+
+export default Login;
+```
+
+by doing that, as we click on the login button, we are updating the user state value into the reducer!
+
+## how can grab the data stored?
+
+to grab the information we want from the reducers, we use the `useSelector` hook to access the values of the states. this hook takes in a function which allows you to specify which state you want to access, which, in our case, is the `user` state.
+
+```jsx
+import React from "react";
+import { useSelector } from "react-redux";
+
+function Profile() {
+  const user = useSelector((state) => state.user.value);
+
+  return (
+    <div>
+      <h1>profile page</h1>
+      <p>name: {user.name}</p>
+      <p>age: {user.age}</p>
+      <p>email: {user.email}</p>
+    </div>
+  );
+}
+
+export default Profile;
+```
+
+so, as we click the login button, we are able to see the new values of the user state:
+
+<p align="center">
+  <img src="./public/readme3.png" alt="State transition" width="600">
+</p>
+
+## conclusion
+
+in conclusion, redux is a powerful state management library that helps you maintain and control the state of your React application. It allows you to create a `store` to store your global states, use `reducers` to manage these states, use `dispatch` to update them, and use `selectors` to access and display the stored data. this structured approach simplifies state management and enhances the organization of your code, making it easier to develop and maintain complex applications.
+
+i really hope that this can help you to learn a new skill or to improve your code thinking. see you later! 👋👋
