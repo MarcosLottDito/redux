@@ -12,7 +12,7 @@ in essence, if I were to summarize redux in a single sentence, I would say that 
 
 ## what is state management?
 
-to explain the importance of state management and how redux can help us in doing that I made this simple diagram:
+to explain the importance of state management and how redux can help us do that I created this simple diagram:
 
 <p align="center" style='width:400px'>
   <img src="./public/readme1.png" alt="Diagram" width="600">
@@ -22,7 +22,7 @@ imagine that we have this `app component` that has 2 others components: `login` 
 
 the `login component` is where you write the code to log into an user profile, filling in your username, email, and any other information associated with an user.
 
-on the other hand, we have the `profile component`, which is where the user can view and edit its information once it'is already logged in.
+on the other hand, we have the `profile component`, which is where the user can view and edit their information once they're already logged in.
 
 so, the main idea here is that we want to access the same state (user information) in both of these components. however, we don't want to pass this information as props to them, as it could lead to a messy and disorganized codebase.
 
@@ -73,7 +73,7 @@ to build our `user state reducer`, we are going to use a function called `create
 ```jsx
 import { createSlice } from "@reduxjs/toolkit";
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
   name: "user",
   initialState: { value: { name: "", age: 0, email: "" } },
   reducers: {
@@ -87,10 +87,10 @@ export const { login } = userSlice.actions;
 //exporting the login action to update the state
 
 export default userSlice.reducer;
-//exporting the reducer so we can access the states values
+//exporting the reducer so we can access the state's values
 ```
 
-as we can see, our slice has 3 properties: name, initialState, and the reducers. the reducers receive our functions, and each function takes 2 parameters:
+as we can see, our `slice` has 3 properties: name, initialState, and the reducers. the reducers receive our functions, and each function takes 2 parameters:
 
 - `state`, which is the previous state stored in the app. So, in this case, the state will have a value that is an object with name, age, and email.
 - `action`, which is the data that represents an intention to change the state and is the only way to send data from your application to the Redux store. Actions have two properties:
