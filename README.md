@@ -1,10 +1,10 @@
 # redux
 
-I'm creating this repository to save my studies of the `redux library` and document them in this readme.md file so that I can assist other people in understanding it in a straightforward manner.
+i'm creating this repository to save my studies of the `redux library` and document them in this readme.md file so that i can assist other people in understanding it in a straightforward manner.
 
 so, to get started, let's dive right in!
 
-in essence, if I were to summarize redux in a single sentence, I would say that redux is a very well known library that allows you to manage states in your `react application`.
+in essence, if i were to summarize redux in a single sentence, i would say that redux is a very well known library that allows you to manage states in your `react application`.
 
 <p align="center">
   <img src="./public/readme0.png" alt="Banner" width="600">
@@ -12,7 +12,7 @@ in essence, if I were to summarize redux in a single sentence, I would say that 
 
 ## what is state management?
 
-to explain the importance of state management and how redux can help us do that I created this simple diagram:
+to explain the importance of state management and how redux can help us do that i created this simple diagram:
 
 <p align="center">
   <img src="./public/readme1.png" alt="Diagram" width="600">
@@ -87,10 +87,10 @@ export default userSlice.reducer;
 
 as we can see, our `slice` has 3 properties: name, initialState, and the reducers. the reducers receive our functions, and each function takes 2 parameters:
 
-- `state`, which is the previous state stored in the app. So, in this case, the state will have a value that is an object with name, age, and email.
-- `action`, which is the data that represents an intention to change the state and is the only way to send data from your application to the Redux store. Actions have two properties:
+- `state`, which is the previous state stored in the app. so, in this case, the state will have a value that is an object with name, age, and email.
+- `action`, which is the data that represents an intention to change the state and is the only way to send data from your application to the redux store. actions have two properties:
   - `payload` which is the additional data used to update the state.
-  - `type` which indicates the type of action being performed. It is used to manipulate the payload conditionally (I'm not going to set a type because it is just a simple application).
+  - `type` which indicates the type of action being performed. it is used to manipulate the payload conditionally (i'm not going to set a type because it is just a simple application).
 
 ## how we can update the state?
 
@@ -154,6 +154,6 @@ so, as we click the login button, we are able to see the new values of the user 
 
 ## conclusion
 
-in conclusion, redux is a powerful state management library that helps you maintain and control the state of your React application. It allows you to create a `store` to store your global states, use `reducers` to manage these states, use `dispatch` to update them, and use `selectors` to access and display the stored data. this structured approach simplifies state management and enhances the organization of your code, making it easier to develop and maintain complex applications.
+in conclusion, redux is a powerful state management library that helps you maintain and control the state of your react application. it allows you to create a `store` to store your global states, use `reducers` to manage these states, use `dispatch` to update them, and use `selectors` to access and display the stored data. this structured approach simplifies state management and enhances the organization of your code, making it easier to develop and maintain complex applications.
 
 i really hope that this can help you to learn a new skill or to improve your code thinking. see you later! 👋👋
